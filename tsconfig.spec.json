@@ -3,6 +3,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
+    "paths": {
+      "@employee": ["app/employee/index.ts"]
+    },
     "types": [
       "jasmine"
     ]

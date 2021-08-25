@@ -1,0 +1,24 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th [sortApp]= "employeeWithDeptList" sort-order ='desc' sort-id= 'employeeName'>Employee Name</th>
+        <th [sortApp]= "employeeWithDeptList" sort-order ='desc' sort-id= 'deptName'>Employee Department</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let emp of employeeWithDeptList">
+      <tr>
+        <td>{{emp.employeeName}}</td>
+        <td>{{emp.deptName}}</td>
+        <td><button (click) ="onEmployeeSelected(emp.employeeName)">Click</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div>
+    <div class="col" *ngIf="empService.selectedEmployee$ | async as emps">
+      Employee Name: {{emps.employeeName}}
+      Department Name: {{emps.deptName}}
+    </div>
+  </div>
+</div>
